@@ -67,4 +67,6 @@ Exit from ssh session, in cloud shell type http://<publicip>, this should also r
 
 8, To Destory resources
 
-az group delete --name $VMResourceGroup
+```
+    az group delete --name $VMResourceGroup
+```
