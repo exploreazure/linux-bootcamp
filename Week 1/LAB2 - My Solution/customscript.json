@@ -1,0 +1,37 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "vmName": {
+            "defaultValue": "linuxvm01",
+            "type": "string"
+        }
+    },
+    "variables": {
+        "userIdentity": "<clientid>"
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Compute/virtualMachines/extensions",
+            "apiVersion": "2020-12-01",
+            "name": "[concat(parameters('vmName'),'/CustomScriptExtension')]",
+            "location": "[resourceGroup().location]",
+            "properties": {
+                "publisher": "Microsoft.Azure.Extensions",
+                "type": "CustomScript",
+                "typeHandlerVersion": "2.0",
+                "autoUpgradeMinorVersion": true,
+                "settings": {},
+                "protectedSettings": {
+                    "fileUris": [
+                        "https://salinuxserv6789.blob.core.windows.net/scripts/InstallNginx.sh"
+                    ],
+                    "managedIdentity": {
+                        "clientId": "[variables('userIdentity')]"
+                    },
+                    "commandToExecute": "sh InstallNginx.sh"
+                }
+            }
+        }
+    ]
+}
