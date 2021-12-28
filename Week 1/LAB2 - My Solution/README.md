@@ -170,8 +170,8 @@ Select Bash
 
 
 This has succesfully installed Nginx, without needing to sign into the ssh console.
-To test http://<publicip>
-The Nginx test web page should be shown
+To test browse to the publicip of virtual machine using http
+The Nginx test web page should be shown. Congrats you have completed the lab :-)
 
 
 9. To Destory resources
