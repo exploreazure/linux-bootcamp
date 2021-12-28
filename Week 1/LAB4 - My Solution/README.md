@@ -16,6 +16,12 @@ Note specify a file, otherwise the default files will be overwritten
 3. Provide an SSH public key when deploying a VM
 
 ```
+    VMName='linuxvm01'
+    Image='UbuntuLTS'
+    AdminUser='sysadmin'
+    VMSize='Standard_B1s'
+    VMResourceGroup='rgLinuxServer01'
+
     az vm create \
     --resource-group $VMResourceGroup \
     --name $VMName \
